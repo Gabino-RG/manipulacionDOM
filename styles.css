@@ -1,0 +1,269 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Paleta ultra premium */
+  --bg-color: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --highlight-color: #fef9c3;
+  --highlight-border: #f59e0b;
+  --danger-color: #ef4444;
+}
+
+body {
+  margin: 0;
+  padding: 40px 24px;
+  background: var(--bg-color);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.card {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 32px;
+  /* Sombra más profunda y moderna */
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+#titulo {
+  margin-top: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  /* Texto con degradado bien perro */
+  background: linear-gradient(90deg, var(--primary-color), #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0 32px 0;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-dark);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Parte B - Administrador de noticias */
+.admin-section {
+  margin-top: 32px;
+}
+
+.admin-section h2 {
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.form-add {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.form-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  background-color: #f8fafc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.btn-submit {
+  background: var(--text-dark);
+  color: white;
+  min-width: 150px;
+  border: none;
+}
+
+.btn-submit:hover {
+  background: black;
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Lista dinámica de noticias */
+.lista-noticias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nota-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nota-item:hover {
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+  transform: translateY(-3px) scale(1.01);
+  border-color: #cbd5e1;
+}
+
+.nota-item.destacada-item { /* Cambia esto a .resaltado si usaste el JS de la respuesta pasada */
+  border-color: var(--highlight-border);
+  background: linear-gradient(to right, #fffbeb, white);
+  border-left: 6px solid var(--highlight-border);
+}
+
+.nota-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nota-item-titulo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.nota-item-tag {
+  display: inline-block;
+  background: #e0e7ff;
+  color: var(--primary-hover);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.nota-item-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-xs {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.btn-delete {
+  background: white;
+  color: var(--danger-color);
+  border-color: #fca5a5;
+}
+
+.btn-delete:hover {
+  background: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+.btn-star {
+  background: white;
+  color: #d97706;
+  border-color: #fcd34d;
+}
+
+.btn-star:hover {
+  background: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.nota {
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background-color: white;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado de NOTA DESTACADA (Parte A) */
+/* Estilos para nuestra nueva clase de JS */
+.card-noticia.resaltado {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    background-color: #f4f8ff; /* Le puse un fondito azul claro para que se note más el cambio */
+}
+
+.nota.destacada .nota__heading {
+  color: #92400e;
+}
+
+#imgNota {
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#imgNota:hover {
+  transform: scale(1.02);
+}
+
+.divisor {
+  margin: 40px 0;
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
